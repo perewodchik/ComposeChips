@@ -15,10 +15,10 @@ import com.sgcdeveloper.chips.model.chips.ChipModel
 import com.sgcdeveloper.chips.model.chips.imageChip.ChipImage
 
 @Composable
-fun RowScope.ChipImage(chipImage: ChipImage?, isEnable: Boolean) {
+fun RowScope.ChipImage(chipImage: ChipImage?, isEnabled: Boolean) {
     if (chipImage == null) return
 
-    val colorTint = if (isEnable) {
+    val colorTint = if (isEnabled) {
         chipImage.enableTint
     } else {
         chipImage.disableTint
@@ -47,10 +47,10 @@ fun <T : ChipModel> Chip(
     chipPadding: PaddingValues = ChipDefaults.ChipPaddings,
     content: @Composable RowScope.(chipModel: T) -> Unit
 ) {
-    val isEnable = chip.isEnable
-    val contentColor by colors.contentColor(isEnable)
-    val backgroundColor by colors.backgroundColor(isEnable)
-    val borderColor by colors.borderColor(isEnable)
+    val isEnabled = chip.isEnabled
+    val contentColor by colors.contentColor(isEnabled)
+    val backgroundColor by colors.backgroundColor(isEnabled)
+    val borderColor by colors.borderColor(isEnabled)
     Surface(
         onClick = onClick,
         modifier = modifier.padding(chipPadding),
